@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+
 const app = express();
 
-const date = require(__dirname + "/date.js");
+/*const date = require(__dirname + "date.js");
+console.log(date);*/
 
 var alleeingaben = ["Kaffe", "Bier"];
 var workItems = [];
@@ -12,10 +14,9 @@ app.use(bodyParser.urlencoded({extende:true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res){
-  
-    res.render("list", {listtitle: date,
-                        eingaben:  alleeingaben});
-});
+    res.render("list", {listtitle: "KK",
+        eingaben:  alleeingaben});
+   });
 
 app.get("/work",function(req, res){
     res.render("list", {listtitle: "work",
